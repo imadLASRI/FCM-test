@@ -7,11 +7,15 @@
   </head>
   <body>
     <p>OK</p>
-    <p>OK</p>
-    <p>OK</p>
-    <p>OK</p>
-    <p>OK</p>
-    <p>OK</p>
+
+    <button id="sendFCM">SEND NOTIFICATION</button>
+
+    <!-- Jq just to test sending msg -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
     <script src="init-firebase.js"></script>
@@ -21,27 +25,26 @@
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("public/firebase-messaging-sw.js")
-            .then(
-              function (registration) {
-                // Registration was successful
-                console.log(
-                  "ServiceWorker registration successful with scope: ",
-                  registration.scope
-                );
-              },
-              function (err) {
-                // registration failed :(
-                console.log("ServiceWorker registration failed: ", err);
-              }
-            );
+          navigator.serviceWorker.register("/firebase-messaging-sw.js").then(
+            function (registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              // registration failed :(
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
         });
       }
     </script>
+
     <script>
-      console.log("ok from index");
-      const messaging = firebase.messaging();
+      //
+      console.log("EOF - index");
     </script>
   </body>
 </html>
