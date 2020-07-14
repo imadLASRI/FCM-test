@@ -64,7 +64,7 @@ messaging.onMessage(function (payload) {
 // Needed to use the new serverkey (the longer one) for the authorisation
 $(function () {
   $("#sendFCM").click(function () {
-    if (user_token !== "") {
+    if ($("#usertoken").val() !== "") {
       $.ajax({
         url: "https://fcm.googleapis.com/fcm/send",
         type: "POST",
