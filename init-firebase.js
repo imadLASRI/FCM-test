@@ -57,7 +57,7 @@ messaging.onTokenRefresh(() => {
 
 // display the recieved msg ON THE PAGE if page is open
 messaging.onMessage(function (payload) {
-  console.log("onMessage payload : ", payload);
+  console.log("onMessage payload (if page is open): ", payload);
 });
 
 //
