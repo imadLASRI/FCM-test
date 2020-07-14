@@ -64,31 +64,30 @@ messaging.onMessage(function (payload) {
 // Needed to use the new serverkey (the longer one) for the authorisation
 $(function () {
   $("#sendFCM").click(function () {
-    if ($("#usertoken").val() !== "") {
-      $.ajax({
-        url: "https://fcm.googleapis.com/fcm/send",
-        type: "POST",
-        contentType: "application/json",
-        headers: {
-          Authorization:
-            "key=AAAAdIYDi20:APA91bE2oeapo9rHxh07nacpP7RTsrVGRivCc3_GHiW0Dxs-xkhqVnY1irqh4kZtRw_P0PbTe5p4Y7BqwaR1gYpZcKA87VqZKXBwMQJLND_hFlaV18Ix1GDSvDl_rjkB-ZiaxIErKSah",
-        },
-        dataType: "json",
-        data: JSON.stringify({
-          to: $("#usertoken").val(),
-          notification: {
-            title: $("#notification_title").val(),
-            body: $("#notification_body").val(),
-          },
-        }),
+    $.ajax({
+      url: "https://fcm.googleapis.com/fcm/send",
+      type: "POST",
+      contentType: "application/json",
+      headers: {
+        Authorization:
+          "key=AAAAdIYDi20:APA91bE2oeapo9rHxh07nacpP7RTsrVGRivCc3_GHiW0Dxs-xkhqVnY1irqh4kZtRw_P0PbTe5p4Y7BqwaR1gYpZcKA87VqZKXBwMQJLND_hFlaV18Ix1GDSvDl_rjkB-ZiaxIErKSah",
+      },
+      dataType: "json",
+      data: JSON.stringify({
+        to: $("#usertoken").val(),
+        //   in case of multiple users notification uncomment line bellow & comment the upper one
 
-        success: function (data) {
-          console.log("ajax call success");
+        // registration_ids: [$("#usertoken").val(), $("#usertoken2").val()],
+        notification: {
+          title: $("#notification_title").val(),
+          body: $("#notification_body").val(),
         },
-      });
-    } else {
-      console.log("NO TOKEN YET");
-    }
+      }),
+
+      success: function (data) {
+        console.log("ajax call success");
+      },
+    });
   });
 });
 

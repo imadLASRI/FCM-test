@@ -6,6 +6,12 @@
     <title>Document</title>
   </head>
   <body>
+    <p>Test Single user notification first (only 1st token needed)</p>
+    <p>
+      To test multiple users notification check int-firebase.js ajax call
+      comment.
+    </p>
+    <br /><br />
     <label for="">Notification title</label>
     <input type="text" id="notification_title" />
     <br />
@@ -19,6 +25,17 @@
     <textarea
       name="usertoken"
       id="usertoken"
+      cols="80"
+      rows="3"
+      placeholder="User Token (check console)"
+    ></textarea>
+    <br />
+    <br />
+    <label for="">2nd User token to send to (stored in DB):</label>
+    <br />
+    <textarea
+      name="usertoken2"
+      id="usertoken2"
       cols="80"
       rows="3"
       placeholder="User Token (check console)"
