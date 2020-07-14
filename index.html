@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>OK</p>
+    <p>OK</p>
+    <p>OK</p>
+    <p>OK</p>
+    <p>OK</p>
+    <p>OK</p>
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+    <script src="init-firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js"></script> -->
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/firebase-messaging-sw.js").then(
+            function (registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              // registration failed :(
+              console.log("ServiceWorker registration failed: ", err);
+            }
+          );
+        });
+      }
+    </script>
+    <script>
+      console.log("ok from index");
+      const messaging = firebase.messaging();
+    </script>
+  </body>
+</html>
