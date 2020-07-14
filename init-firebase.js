@@ -61,7 +61,7 @@ messaging.onMessage(function (payload) {
 });
 
 //
-
+// Needed to use the new serverkey (the longer one) for the authorisation
 $(function () {
   $("#sendFCM").click(function () {
     if (user_token !== "") {
@@ -69,15 +69,19 @@ $(function () {
         url: "https://fcm.googleapis.com/fcm/send",
         type: "POST",
         contentType: "application/json",
-        authorization: "key=AIzaSyBnNSx9IyPZVwtEOcD6lLPclldpsTOQpao",
-        data: {
+        headers: {
+          Authorization:
+            "key=AAAAdIYDi20:APA91bE2oeapo9rHxh07nacpP7RTsrVGRivCc3_GHiW0Dxs-xkhqVnY1irqh4kZtRw_P0PbTe5p4Y7BqwaR1gYpZcKA87VqZKXBwMQJLND_hFlaV18Ix1GDSvDl_rjkB-ZiaxIErKSah",
+        },
+        dataType: "json",
+        data: JSON.stringify({
           to:
-            "coGafHqDslJf7DMuZAhLzD:APA91bFLIEGkX_NjGnM-X7nzkr0tD5W1Jh_qAMYYB3wOnTnvQVnYiUhjgeuT09wPmpaLVEDcy9esk8wNIpw2QtYDwN72B0OqxOuuGRlG8J_NqrLwcpXPvcnfFiGW38nvmW7WRJY1Umqd",
+            "dae4rCZ8HZd2bsFTXA9XG3:APA91bEQPYevaYof-w_1pCOCzMzozH5KoFM7UWsq5NSqPKORqKwLxeKwBkF6_fF_P4Nt3pSgTk5X7HmAJw9Uhrke1NQtne9RW6CRG4YUjX_vMR_oJJEk8jBpmQur-zoudvtwic-ziPbp",
           notification: {
             title: "This is my notification title",
             body: "This is my notification message",
           },
-        },
+        }),
 
         success: function (data) {
           console.log("ajax call success");
