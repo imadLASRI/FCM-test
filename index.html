@@ -6,8 +6,24 @@
     <title>Document</title>
   </head>
   <body>
-    <p>OK</p>
-
+    <label for="">Notification title</label>
+    <input type="text" id="notification_title" />
+    <br />
+    <br />
+    <label for="">Notification body</label>
+    <input type="text" id="notification_body" />
+    <br />
+    <br />
+    <label for="">User token to send to (stored in DB):</label>
+    <textarea
+      name="usertoken"
+      id="usertoken"
+      cols="80"
+      rows="2"
+      placeholder="User Token (check console)"
+    ></textarea>
+    <br />
+    <br />
     <button id="sendFCM">SEND NOTIFICATION</button>
 
     <!-- Jq just to test sending msg -->

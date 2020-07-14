@@ -75,11 +75,10 @@ $(function () {
         },
         dataType: "json",
         data: JSON.stringify({
-          to:
-            "dae4rCZ8HZd2bsFTXA9XG3:APA91bEQPYevaYof-w_1pCOCzMzozH5KoFM7UWsq5NSqPKORqKwLxeKwBkF6_fF_P4Nt3pSgTk5X7HmAJw9Uhrke1NQtne9RW6CRG4YUjX_vMR_oJJEk8jBpmQur-zoudvtwic-ziPbp",
+          to: $("#usertoken").val(),
           notification: {
-            title: "This is my notification title",
-            body: "This is my notification message",
+            title: $("#notification_title").val(),
+            body: $("#notification_body").val(),
           },
         }),
 
